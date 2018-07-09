@@ -15,8 +15,11 @@ def new_gladiator(health, rage, damage_low, damage_high):
 
 def attack(attacker, defender):
     damage_dealt = randint(attacker['damage_low'], attacker['damage_high'])
-    defender['health'] -= damage_dealt
-    attacker['rage'] += 15
+    attacker['rage'] = 0
     critical = damage_dealt * 2
-    if critical:
+    if randint(1, 100) < attacker['rage']:
+        defender['health'] = defender['health'] - critical
         attacker['rage'] == 0
+    else:
+        defender['health'] = defender['health'] - damage_dealt
+        attacker['rage'] += 15
