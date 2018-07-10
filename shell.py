@@ -34,15 +34,16 @@ def turn(attacker, defender):
     choice = ''
     while choice != 'Q':
         print(attacker['name'] + "'s", 'turn')
-        print('[A]TTACK')
-        print('[H]EAL')
-        print('[P]ASS')
-        print('[Q]UIT')
+        print('>>> [A]TTACK')
+        print('>>> [H]EAL')
+        print('>>> [P]ASS')
+        print('>>> [Q]UIT')
         choice = input('Choose an option! ').upper().strip()
         if choice == 'A':
             attack(attacker, defender)
             print('\nWOW....{} attacked {}, that was gruesome!!'.format(
                 attacker['name'], defender['name']))
+            print()
             print(defender['name'], defender['health'])
             print(attacker['name'], attacker['health'])
 
