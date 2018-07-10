@@ -12,66 +12,42 @@ def get_name():
     return name
 
 
-def battle(name, name2, d, p):
+def battle(d, p):
     while True:
-        if is_dead(d) == True:
-            print(name, 'died')
-            print(name2, 'won')
-            break
-            exit()
-        turn1(name, d, p)
+        turn(d, p)
         if is_dead(p) == True:
-            print(name2, 'died')
-            print(name, 'won')
+            print(p['name'], 'died')
+            print(d['name'], 'won')
             break
             exit()
-        turn2(name, d, p)
+
+        turn(p, d)
+        if is_dead(d) == True:
+            print(d['name'], 'died')
+            print(p['name'], 'won')
+            break
+            exit()
 
 
-def turn1(name, d, p):
-    while True:
-        print(name, 'turn')
+def turn(attacker, defender):
+    choice = ''
+    while choice != 'Q':
+        print(attacker['name'], 'turn')
         print('[A]TTACK')
         print('[H]EAL')
         print('[P]ASS')
         print('[Q]UIT')
         choice = input('Choose an option! ').upper().strip()
         if choice == 'A':
-            attack(d, p)
-            print(p['health'])
+            attack(attacker, defender)
+            print(defender['health'])
             break
         elif choice == 'H':
-            heal(d)
-            print(d['health'])
+            heal(attacker)
+            print(attacker['health'])
             break
         elif choice == 'P':
-            print(name, 'passes')
-            break
-        elif choice == 'Q':
-            exit()
-        else:
-            print('Please choose a valid option!!!')
-
-
-def turn2(name2, d, p):
-
-    while True:
-        print(name2, 'turn')
-        print('[A]TTACK')
-        print('[H]EAL')
-        print('[P]ASS')
-        print('[Q]UIT')
-        choice = input('Choose an option! ').upper().strip()
-        if choice == 'A':
-            attack(d, p)
-            print(p['health'])
-            break
-        elif choice == 'H':
-            heal(d)
-            print(d['health'])
-            break
-        elif choice == 'P':
-            print(name2, 'passes')
+            print(attacker['name'], 'passes')
             break
         elif choice == 'Q':
             exit()
@@ -81,11 +57,15 @@ def turn2(name2, d, p):
 
 def main():
     welcome()
+    print()
     name = get_name()
+    print()
     name2 = get_name()
     d = new_gladiator(100, 0, 15, 20)
+    d['name'] = name
     p = new_gladiator(100, 0, 15, 20)
-    battle(name, name2, d, p)
+    p['name'] = name2
+    battle(d, p)
 
 
 if __name__ == '__main__':
