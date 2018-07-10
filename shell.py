@@ -7,8 +7,8 @@ def welcome():
 
 
 def get_name():
-    name = input('\tWhat is your name?? ')
-    print('\tHey there ' + name)
+    name = input('What is your name?? ')
+    print('Hey there ' + name)
     return name
 
 
@@ -24,6 +24,7 @@ def battle(d, p):
         turn(p, d)
         if is_dead(d) == True:
             print(d['name'], 'died')
+            print()
             print(p['name'], 'won')
             break
             exit()
@@ -32,7 +33,7 @@ def battle(d, p):
 def turn(attacker, defender):
     choice = ''
     while choice != 'Q':
-        print(attacker['name'], 'turn')
+        print(attacker['name'] + "'s", 'turn')
         print('[A]TTACK')
         print('[H]EAL')
         print('[P]ASS')
@@ -40,7 +41,11 @@ def turn(attacker, defender):
         choice = input('Choose an option! ').upper().strip()
         if choice == 'A':
             attack(attacker, defender)
-            print(defender['health'])
+            print('\nWOW....{} attacked {}, that was gruesome!!'.format(
+                attacker['name'], defender['name']))
+            print(defender['name'], defender['health'])
+            print(attacker['name'], attacker['health'])
+
             break
         elif choice == 'H':
             heal(attacker)
@@ -50,6 +55,10 @@ def turn(attacker, defender):
             print(attacker['name'], 'passes')
             break
         elif choice == 'Q':
+            print('\n{} survived a terrifying battle!'.format(
+                defender['name']))
+            print('\n{} survived a terrifying battle!'.format(
+                attacker['name']))
             exit()
         else:
             print('Please choose a valid option!!!')
