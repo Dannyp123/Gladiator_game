@@ -16,7 +16,6 @@ def new_gladiator(health, rage, damage_low, damage_high):
 def attack(attacker, defender):
 
     damage_dealt = randint(attacker['damage_low'], attacker['damage_high'])
-    attacker['rage'] = 0
     critical = damage_dealt * 2
     if randint(1, 100) < attacker['rage']:
         defender['health'] = defender['health'] - critical
@@ -24,3 +23,12 @@ def attack(attacker, defender):
     else:
         defender['health'] = defender['health'] - damage_dealt
         attacker['rage'] += 15
+    return defender['health']
+
+
+def heal_glad(gladiator):
+    if gladiator['rage'] >= 10 and gladiator['health'] <= 95:
+        gladiator['rage'] = gladiator['rage'] - 10
+        gladiator['health'] = gladiator['health'] + 5
+    else:
+        return None
