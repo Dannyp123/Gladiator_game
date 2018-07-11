@@ -2,13 +2,18 @@ from core import *
 
 
 def welcome():
-    print('\t    Welcome to GLADIATOR')
-    print('\tThe best action game around')
+    while True:
+        print('\t    Welcome to GLADIATOR\n')
+        print('\tThe game where you fight to the death!')
+        print('\tDo You think you got what it takes?')
+        print('\tHit Enter to see!')
+        input()
+        break
 
 
 def get_name():
     name = input('What is your name, mighty gladiator? ')
-    print('Welcome to Gladiator You must fight to the DEATH....' + name)
+    print('Welcome to Gladiator You must fight to the DEATH ' + name)
     return name
 
 
@@ -18,7 +23,9 @@ def battle(d, p):
         if is_dead(p) == True:
             print(p['name'], 'has pershied to a gruesome death...RIP')
             print()
-            print(d['name'], 'has become victories and saved the world')
+            print(
+                d['name'],
+                'has become victories and saved the world and wins the game')
             break
             exit()
 
@@ -26,12 +33,15 @@ def battle(d, p):
         if is_dead(d) == True:
             print(d['name'], 'has pershied to a gruesome death...RIP')
             print()
-            print(p['name'], 'has become victories and saved the world')
+            print(
+                p['name'],
+                'has become victories and saved the world and wins the game')
             break
             exit()
 
 
 def turn(attacker, defender):
+    print('Begin Gladiator!!!\n')
     choice = ''
     while choice != 'Q':
         print(attacker['name'] + "'s", 'turn')
