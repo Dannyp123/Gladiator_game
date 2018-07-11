@@ -4,15 +4,15 @@ from core import *
 def welcome():
     while True:
         print('\t    Welcome to GLADIATOR\n')
-        print('\tThe game where you fight to the death!')
-        print('\tDo You think you got what it takes?')
+        print('\tThe game where you fight to the death!\n')
+        print('\tDo You think you got what it takes?\n')
         print('\tHit Enter to see!')
         input()
         break
 
 
 def get_name():
-    name = input('What is your name, mighty gladiator? ')
+    name = input('What is your name, mighty gladiator? ').strip().title()
     print('Welcome to Gladiator You must fight to the DEATH ' + name)
     return name
 
@@ -25,7 +25,7 @@ def battle(d, p):
             print()
             print(
                 d['name'],
-                'has become victories and saved the world and wins the game')
+                'has become victorious and saved the world and wins the game')
             break
             exit()
 
@@ -35,13 +35,12 @@ def battle(d, p):
             print()
             print(
                 p['name'],
-                'has become victories and saved the world and wins the game')
+                'has become victorious and saved the world and wins the game')
             break
             exit()
 
 
 def turn(attacker, defender):
-    print('Begin Gladiator!!!\n')
     choice = ''
     while choice != 'Q':
         print(attacker['name'] + "'s", 'turn')
@@ -65,11 +64,14 @@ def turn(attacker, defender):
             print()
             print('Rage of', defender['name'], ';', defender['rage'])
             print('Rage of', attacker['name'], ':', attacker['rage'])
+            print()
 
             break
         elif choice == 'H':
             if attacker['health'] == 100:
                 print('Can not heal because you are not injuried!!')
+            elif attacker['rage'] < 10:
+                print('\nNot enough power to heal!!\n')
             heal(attacker)
             print(attacker['name'], attacker['health'])
             break
@@ -80,15 +82,16 @@ def turn(attacker, defender):
             if attacker['rage'] >= 20:
                 print(
                     attacker['name'],
-                    'used a RAMPAGE....KAAABOOOOM...he sacrifies himself for the WORLD and wins the game...'
+                    'used a RAMPAGE....KAAABOOOOM...he sacrifies himself to win the game...'
                 )
+                print('\n\t****END--OF--THE--GAME****')
                 exit()
             elif attacker['rage'] < 20:
                 print('\nNot enough power to fuel your inner monster!!!')
                 print()
 
         elif choice == 'Q':
-            print('\n{}felt pitty for {},you filthy animal!!!!'.format(
+            print('\n{} felt pitty for the filthy animal {}!!!!'.format(
                 attacker['name'], defender['name']))
             exit()
         else:
@@ -106,6 +109,7 @@ def main():
     d['name'] = name
     p = new_gladiator(100, 0, 15, 20)
     p['name'] = name2
+    print('Begin Gladiator!!!\n')
     battle(d, p)
 
 
