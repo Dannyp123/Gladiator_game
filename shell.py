@@ -7,8 +7,8 @@ def welcome():
 
 
 def get_name():
-    name = input('What is your name?? ')
-    print('Hey there ' + name)
+    name = input('What is your name, mighty gladiator? ')
+    print('Welcome to Gladiator FIGHT TO THE DEEAATHH!!' + name)
     return name
 
 
@@ -50,11 +50,9 @@ def turn(attacker, defender):
                 attacker['name'], defender['name']))
             print()
             print('Health of', defender['name'], defender['health'])
-            print()
             print('Health of', attacker['name'], attacker['health'])
             print()
             print('Rage of', defender['name'], defender['rage'])
-            print()
             print('Rage of', attacker['name'], attacker['rage'])
 
             break
