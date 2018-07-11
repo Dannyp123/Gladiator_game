@@ -6,7 +6,7 @@ def welcome():
         print('\t    Welcome to GLADIATOR\n')
         print('\tThe game where you fight to the death!\n')
         print('\tDo You think you got what it takes?\n')
-        print('\tHit Enter to see!')
+        print('\t     Hit Enter to see!')
         input()
         break
 
@@ -26,6 +26,7 @@ def battle(d, p):
             print(
                 d['name'],
                 'has become victorious and saved the world and wins the game')
+            print('\n\t****END--OF--THE--GAME****')
             break
             exit()
 
@@ -36,6 +37,7 @@ def battle(d, p):
             print(
                 p['name'],
                 'has become victorious and saved the world and wins the game')
+            print('\n\t****END--OF--THE--GAME****')
             break
             exit()
 
@@ -70,6 +72,7 @@ def turn(attacker, defender):
         elif choice == 'H':
             if attacker['health'] == 100:
                 print('Can not heal because you are not injuried!!')
+                print()
             elif attacker['rage'] < 10:
                 print('\nNot enough power to heal!!\n')
             heal(attacker)
@@ -82,8 +85,9 @@ def turn(attacker, defender):
             if attacker['rage'] >= 20:
                 print(
                     attacker['name'],
-                    'used a RAMPAGE....KAAABOOOOM...he sacrifies himself to win the game...'
+                    'used a RAMPAGE...killing everyone including himself, giving him the victory!!!'
                 )
+                print(attacker['name'], 'Wins The Game!!!!\n')
                 print('\n\t****END--OF--THE--GAME****')
                 exit()
             elif attacker['rage'] < 20:
@@ -91,8 +95,10 @@ def turn(attacker, defender):
                 print()
 
         elif choice == 'Q':
-            print('\n{} felt pitty for the filthy animal {}!!!!'.format(
-                attacker['name'], defender['name']))
+            print(
+                '\n{} felt pitty for the filthy animal {}, so he ended the game before there was a gruesome death!!!!'.
+                format(attacker['name'], defender['name']))
+            print('\n\t****END--OF--THE--GAME****')
             exit()
         else:
             print('Please choose a valid option!!!')
@@ -109,7 +115,7 @@ def main():
     d['name'] = name
     p = new_gladiator(100, 0, 15, 20)
     p['name'] = name2
-    print('Begin Gladiator!!!\n')
+    print('Let the game Gladiator began!!!\n')
     battle(d, p)
 
 
