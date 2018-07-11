@@ -26,7 +26,7 @@ def battle(d, p):
             print(
                 d['name'],
                 'has become victorious and saved the world and wins the game')
-            print('\n\t****END--OF--THE--GAME****')
+            print('\n\t****END--OF--GLADIATORS****')
             break
             exit()
 
@@ -37,7 +37,7 @@ def battle(d, p):
             print(
                 p['name'],
                 'has become victorious and saved the world and wins the game')
-            print('\n\t****END--OF--THE--GAME****')
+            print('\n\t****END--OF--GLADIATORS****')
             break
             exit()
 
@@ -47,11 +47,11 @@ def turn(attacker, defender):
     while choice != 'Q':
         print(attacker['name'] + "'s", 'turn')
         print()
-        print('>>> [A]TTACK')
-        print('>>> [H]EAL')
-        print('>>> [P]ASS')
-        print('>>> [R]AMPAGE')
-        print('>>> [C]OWARDS WAY OUT')
+        print('>>> [A]TTACK <<<')
+        print('>>> [H]EAL <<<')
+        print('>>> [P]ASS <<<')
+        print('>>> [R]AMPAGE <<<')
+        print('>>> [C]OWARDS WAY OUT <<<')
 
         choice = input(
             'Pick how you will destroy your ENEMY.... ').upper().strip()
@@ -88,7 +88,7 @@ def turn(attacker, defender):
                     'used a RAMPAGE...killing everyone including himself, giving him the victory\n!!!'
                 )
                 print(attacker['name'], 'Wins The Game!!!!\n')
-                print('\n\t****END--OF--THE--GAME****')
+                print('\n\t****END--OF--GLADIATORS****')
                 exit()
             elif attacker['rage'] < 20:
                 print('\nNot enough power to fuel your inner monster!!!')
@@ -98,7 +98,7 @@ def turn(attacker, defender):
             print(
                 '\n{} felt pitty for the filthy animal {}, so he ended the game before there was a gruesome death!!!!'.
                 format(attacker['name'], defender['name']))
-            print('\n\t****END--OF--THE--GAME****')
+            print('\n\t****END--OF--GLADIATORS****')
             exit()
         else:
             print('Please choose a valid option!!!')
