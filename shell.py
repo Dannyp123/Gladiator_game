@@ -8,7 +8,7 @@ def welcome():
 
 def get_name():
     name = input('What is your name, mighty gladiator? ')
-    print('Welcome to Gladiator FIGHT TO THE DEEAATHH!!' + name)
+    print('Welcome to Gladiator You must fight to the DEATH....' + name)
     return name
 
 
@@ -16,16 +16,17 @@ def battle(d, p):
     while True:
         turn(d, p)
         if is_dead(p) == True:
-            print(p['name'], 'died')
-            print(d['name'], 'won')
+            print(p['name'], 'has pershied to a gruesome death...RIP')
+            print()
+            print(d['name'], 'has become victories and saved the world')
             break
             exit()
 
         turn(p, d)
         if is_dead(d) == True:
-            print(d['name'], 'died')
+            print(d['name'], 'has pershied to a gruesome death...RIP')
             print()
-            print(p['name'], 'won')
+            print(p['name'], 'has become victories and saved the world')
             break
             exit()
 
@@ -49,14 +50,16 @@ def turn(attacker, defender):
             print('\nWOW....{} attacked {}, that was gruesome!!'.format(
                 attacker['name'], defender['name']))
             print()
-            print('Health of', defender['name'], defender['health'])
-            print('Health of', attacker['name'], attacker['health'])
+            print('Health of', defender['name'], ':', defender['health'])
+            print('Health of', attacker['name'], ':', attacker['health'])
             print()
-            print('Rage of', defender['name'], defender['rage'])
-            print('Rage of', attacker['name'], attacker['rage'])
+            print('Rage of', defender['name'], ';', defender['rage'])
+            print('Rage of', attacker['name'], ':', attacker['rage'])
 
             break
         elif choice == 'H':
+            if attacker['health'] == 100:
+                print('Can not heal because you are not injuried!!')
             heal(attacker)
             print(attacker['name'], attacker['health'])
             break
@@ -64,10 +67,10 @@ def turn(attacker, defender):
             print(attacker['name'], 'passes')
             break
         elif choice == 'R':
-            if attacker['rage'] > 20:
+            if attacker['rage'] >= 20:
                 print(
                     attacker['name'],
-                    'used a RAMPAGE....he sacrifies thereself for the WORLD...'
+                    'used a RAMPAGE....KAAABOOOOM...he sacrifies himself for the WORLD and wins the game...'
                 )
                 exit()
             elif attacker['rage'] < 20:
