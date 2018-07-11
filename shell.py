@@ -50,8 +50,8 @@ def turn(attacker, defender):
         print('>>> [A]TTACK')
         print('>>> [H]EAL')
         print('>>> [P]ASS')
-        print('>>> [R]ampage')
-        print('>>> [Q]UIT')
+        print('>>> [R]AMPAGE')
+        print('>>> [C]OWARDS WAY OUT')
 
         choice = input(
             'Pick how you will destroy your ENEMY.... ').upper().strip()
@@ -85,7 +85,7 @@ def turn(attacker, defender):
             if attacker['rage'] >= 20:
                 print(
                     attacker['name'],
-                    'used a RAMPAGE...killing everyone including himself, giving him the victory!!!'
+                    'used a RAMPAGE...killing everyone including himself, giving him the victory\n!!!'
                 )
                 print(attacker['name'], 'Wins The Game!!!!\n')
                 print('\n\t****END--OF--THE--GAME****')
@@ -94,7 +94,7 @@ def turn(attacker, defender):
                 print('\nNot enough power to fuel your inner monster!!!')
                 print()
 
-        elif choice == 'Q':
+        elif choice == 'C':
             print(
                 '\n{} felt pitty for the filthy animal {}, so he ended the game before there was a gruesome death!!!!'.
                 format(attacker['name'], defender['name']))
