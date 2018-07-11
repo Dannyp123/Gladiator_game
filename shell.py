@@ -49,13 +49,13 @@ def turn(attacker, defender):
             print('\nWOW....{} attacked {}, that was gruesome!!'.format(
                 attacker['name'], defender['name']))
             print()
-            print('Health of:', defender['name'], defender['health'])
+            print('Health of', defender['name'], defender['health'])
             print()
-            print('Health of:', attacker['name'], attacker['health'])
+            print('Health of', attacker['name'], attacker['health'])
             print()
-            print('Rage of:', defender['name'], defender['rage'])
+            print('Rage of', defender['name'], defender['rage'])
             print()
-            print('Rage of:', attacker['name'], attacker['rage'])
+            print('Rage of', attacker['name'], attacker['rage'])
 
             break
         elif choice == 'H':
@@ -69,11 +69,15 @@ def turn(attacker, defender):
             if attacker['rage'] > 20:
                 print(
                     attacker['name'],
-                    'used a RAMPAGE....BOOMMMM!!!... GAMMMMMMEEEE....OVVVVVVEERRR!!!!! *evil laugh*'
+                    'used a RAMPAGE....he sacrifies thereself for the WORLD...'
                 )
-            exit()
+                exit()
+            elif attacker['rage'] < 20:
+                print('\nNot enough power to fuel your inner monster!!!')
+                print()
+
         elif choice == 'Q':
-            print('\n{} felt pitty for {}, you filthy animal!!!!'.format(
+            print('\n{}felt pitty for {},you filthy animal!!!!'.format(
                 attacker['name'], defender['name']))
             exit()
         else:
