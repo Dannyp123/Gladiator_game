@@ -38,11 +38,14 @@ def turn(attacker, defender):
         print('>>> [A]TTACK')
         print('>>> [H]EAL')
         print('>>> [P]ASS')
+        print('>>> [R]ampage')
         print('>>> [Q]UIT')
+
         choice = input(
             'Pick how you will destroy your ENEMY.... ').upper().strip()
         if choice == 'A':
             attack(attacker, defender)
+            print()
             print('\nWOW....{} attacked {}, that was gruesome!!'.format(
                 attacker['name'], defender['name']))
             print()
@@ -62,11 +65,16 @@ def turn(attacker, defender):
         elif choice == 'P':
             print(attacker['name'], 'passes')
             break
+        elif choice == 'R':
+            if attacker['rage'] > 20:
+                print(
+                    attacker['name'],
+                    'used a RAMPAGE....BOOMMMM!!!... GAMMMMMMEEEE....OVVVVVVEERRR!!!!! *evil laugh*'
+                )
+            exit()
         elif choice == 'Q':
-            print('\n{} survived a terrifying battle!'.format(
-                defender['name']))
-            print('\n{} survived a terrifying battle!'.format(
-                attacker['name']))
+            print('\n{} felt pitty for {}, you filthy animal!!!!'.format(
+                attacker['name'], defender['name']))
             exit()
         else:
             print('Please choose a valid option!!!')
@@ -78,6 +86,7 @@ def main():
     name = get_name()
     print()
     name2 = get_name()
+    print()
     d = new_gladiator(100, 0, 15, 20)
     d['name'] = name
     p = new_gladiator(100, 0, 15, 20)
