@@ -1,14 +1,15 @@
 from random import randint
 
 
-def new_gladiator(health, rage, damage_low, damage_high):
+def new_gladiator(health, rage, damage_low, damage_high, weapon_name):
     ''' int, int, int, int -> dict 
     '''
     new_glad = {
         'health': health,
         'rage': rage,
         'damage_low': damage_low,
-        'damage_high': damage_high
+        'damage_high': damage_high,
+        'weapon': killing_weapons()[weapon_name]
     }
     return new_glad
 
@@ -16,16 +17,22 @@ def new_gladiator(health, rage, damage_low, damage_high):
 def attack(attacker, defender):
 
     damage_dealt = randint(attacker['damage_low'], attacker['damage_high'])
-    critical = damage_dealt * 2
+    weapon_damage = attacker['weapon'] + damage_dealt
+    critical = weapon_damage * 2
     if randint(1, 100) < attacker['rage']:
         health = defender['health'] - critical
         defender['health'] = max(health, 0)
         attacker['rage'] == 0
     else:
-        health = defender['health'] - damage_dealt
+        health = defender['health'] - weapon_damage
         defender['health'] = max(health, 0)
         attacker['rage'] += 15
     return defender['health']
+
+
+def killing_weapons():
+    weapons = {'Battle Axe': 10, 'Stick': 5, 'Thors Hammer': 25}
+    return weapons
 
 
 def heal(gladiator):

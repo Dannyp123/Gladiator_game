@@ -1,4 +1,5 @@
 from core import *
+import time
 
 
 def welcome():
@@ -9,6 +10,19 @@ def welcome():
         print('\t     Hit Enter to see!')
         input()
         break
+
+
+def what_weapon(prompt):
+    while True:
+        weapon = input(prompt).strip().title()
+        if weapon == 'Battle Axe':
+            return weapon
+        elif weapon == 'Stick':
+            return weapon
+        elif weapon == 'Thors Hammer':
+            return weapon
+        else:
+            print('choose a real weapon!')
 
 
 def get_name():
@@ -44,7 +58,7 @@ def battle(d, p):
 
 def turn(attacker, defender):
     choice = ''
-    while choice != 'Q':
+    while choice != 'C':
         print(attacker['name'] + "'s", 'turn')
         print()
         print('>>> [A]TTACK <<<')
@@ -57,6 +71,8 @@ def turn(attacker, defender):
             'Pick how you will destroy your ENEMY.... ').upper().strip()
         if choice == 'A':
             attack(attacker, defender)
+            print(attacker['name'], 'is attacking your gladiator!!')
+            time.sleep(1)
             print()
             print('\nWOW....{} attacked {}, that was gruesome!!'.format(
                 attacker['name'], defender['name']))
@@ -75,6 +91,9 @@ def turn(attacker, defender):
                 print()
             elif attacker['rage'] < 10:
                 print('\nNot enough power to heal!!\n')
+            print('Healing Your Gladiator......')
+            time.sleep(4)
+            print()
             heal(attacker)
             print(attacker['name'], attacker['health'])
             break
@@ -83,6 +102,10 @@ def turn(attacker, defender):
             break
         elif choice == 'R':
             if attacker['rage'] >= 20:
+                print('Building the power from within....')
+                time.sleep(2)
+                print('....KAABOOOOM')
+                time.sleep(1)
                 print(
                     attacker['name'],
                     'used a RAMPAGE...killing everyone including himself, giving him the victory\n!!!'
@@ -111,11 +134,27 @@ def main():
     print()
     name2 = get_name()
     print()
-    d = new_gladiator(100, 0, 15, 20)
+    weapons = killing_weapons()
+    for weapon_name, dmg in weapons.items():
+        print('\nHere is your choice of weapons {} with a damage of {}'.format(
+            weapon_name, dmg))
+    weapon = what_weapon('\nChose your weapon of choice!! ')
+    if weapon == 'Battle Axe':
+        print('\nYou have picked the mighty Battle Axe, killer of man!!')
+    elif weapon == 'Stick':
+        print(
+            '\nYou have picked the puny stick, great for walking not fighting!!'
+        )
+    elif weapon == 'Thors Hammer':
+        print(
+            '\nYou have picked the greatest of all weapons, it has SHOCKING results!!'
+        )
+    d = new_gladiator(100, 0, 15, 20, weapon)
     d['name'] = name
-    p = new_gladiator(100, 0, 15, 20)
+    p = new_gladiator(100, 0, 15, 20, weapon)
     p['name'] = name2
-    print('Let the game Gladiator began!!!\n')
+
+    print('\n\tLet the game Gladiator began!!!\n')
     battle(d, p)
 
 
