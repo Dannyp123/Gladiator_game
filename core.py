@@ -36,7 +36,8 @@ def killing_weapons():
         'Stick': 5,
         'Thors Hammer': 25,
         'Pan': 15,
-        'M-16': 30
+        'M-16': 30,
+        'Tank': 80
     }
     return weapons
 

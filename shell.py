@@ -25,6 +25,8 @@ def what_weapon(prompt):
             return weapon
         elif weapon == 'M-16':
             return weapon
+        elif weapon == 'Tank':
+            return weapon
         else:
             print('choose a real weapon!')
 
@@ -163,6 +165,10 @@ def main():
     elif weapon == 'M-16':
         print(
             '\nYou have picked the common but powerful M-16, blows your defender away!!'
+        )
+    elif weapon == 'Tank':
+        print(
+            '\nYou have picked the Tank, which is the deadliest tool of battle, this weapon absolutely destroys anything in its path!!!!'
         )
     d = new_gladiator(100, 0, 15, 20, weapon)
     d['name'] = name
