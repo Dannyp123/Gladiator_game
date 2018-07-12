@@ -31,7 +31,13 @@ def attack(attacker, defender):
 
 
 def killing_weapons():
-    weapons = {'Battle Axe': 10, 'Stick': 5, 'Thors Hammer': 25}
+    weapons = {
+        'Battle Axe': 10,
+        'Stick': 5,
+        'Thors Hammer': 25,
+        'Pan': 15,
+        'M-16': 30
+    }
     return weapons
 
 

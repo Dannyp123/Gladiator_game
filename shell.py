@@ -23,6 +23,8 @@ def what_weapon(prompt):
             return weapon
         elif weapon == 'Pan':
             return weapon
+        elif weapon == 'M-16':
+            return weapon
         else:
             print('choose a real weapon!')
 
@@ -105,6 +107,7 @@ def turn(attacker, defender):
             break
         elif choice == 'R':
             if attacker['rage'] >= 20:
+                print()
                 print('Poor sucker....*evil laugh*')
                 print('Building the power from within....')
                 time.sleep(2)
@@ -156,6 +159,10 @@ def main():
     elif weapon == 'Pan':
         print(
             "\nYou have picked the mighty pan, good at cooking your gladiator's rage"
+        )
+    elif weapon == 'M-16':
+        print(
+            '\nYou have picked the common but powerful M-16, blows your defender away!!'
         )
     d = new_gladiator(100, 0, 15, 20, weapon)
     d['name'] = name
