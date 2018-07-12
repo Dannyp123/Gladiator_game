@@ -113,7 +113,7 @@ def turn(attacker, defender):
                 print('Poor sucker....*evil laugh*')
                 print('Building the power from within....')
                 time.sleep(2)
-                print('....KAABOOOOM')
+                print('.......KAABOOOOM.......')
                 time.sleep(1)
                 print(
                     attacker['name'],
@@ -144,7 +144,9 @@ def main():
     name2 = get_name()
     print()
     weapons = killing_weapons()
-    print('\nHere are your choices....')
+    print('\nHere is the weapons arsenal.....')
+    print('Gathering weapons of mass destruction!!')
+    time.sleep(3)
     for weapon_name, dmg in weapons.items():
         print('\n{} with a damage of {}'.format(weapon_name, dmg))
     weapon = what_weapon('\nChose your weapon of choice!! ')
