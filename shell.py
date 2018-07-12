@@ -4,7 +4,7 @@ import time
 
 def welcome():
     while True:
-        print('\t    Welcome to GLADIATOR\n')
+        print('\t     Welcome to GLADIATOR\n')
         print('\tThe game where you fight to the death!\n')
         print('\tDo You think you got what it takes?\n')
         print('\t     Hit Enter to see!')
@@ -20,6 +20,8 @@ def what_weapon(prompt):
         elif weapon == 'Stick':
             return weapon
         elif weapon == 'Thors Hammer':
+            return weapon
+        elif weapon == 'Pan':
             return weapon
         else:
             print('choose a real weapon!')
@@ -86,13 +88,14 @@ def turn(attacker, defender):
 
             break
         elif choice == 'H':
+            print('Healing Your Gladiator......')
+            time.sleep(4)
+            print()
             if attacker['health'] == 100:
                 print('Can not heal because you are not injuried!!')
                 print()
             elif attacker['rage'] < 10:
                 print('\nNot enough power to heal!!\n')
-            print('Healing Your Gladiator......')
-            time.sleep(4)
             print()
             heal(attacker)
             print(attacker['name'], attacker['health'])
@@ -102,6 +105,7 @@ def turn(attacker, defender):
             break
         elif choice == 'R':
             if attacker['rage'] >= 20:
+                print('Poor sucker....*evil laugh*')
                 print('Building the power from within....')
                 time.sleep(2)
                 print('....KAABOOOOM')
@@ -148,6 +152,10 @@ def main():
     elif weapon == 'Thors Hammer':
         print(
             '\nYou have picked the greatest of all weapons, it has SHOCKING results!!'
+        )
+    elif weapon == 'Pan':
+        print(
+            "\nYou have picked the mighty pan, good at cooking your gladiator's rage"
         )
     d = new_gladiator(100, 0, 15, 20, weapon)
     d['name'] = name
