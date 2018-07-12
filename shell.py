@@ -135,9 +135,9 @@ def main():
     name2 = get_name()
     print()
     weapons = killing_weapons()
+    print('\nHere are your choices....')
     for weapon_name, dmg in weapons.items():
-        print('\nHere is your choice of weapons {} with a damage of {}'.format(
-            weapon_name, dmg))
+        print('\n{} with a damage of {}'.format(weapon_name, dmg))
     weapon = what_weapon('\nChose your weapon of choice!! ')
     if weapon == 'Battle Axe':
         print('\nYou have picked the mighty Battle Axe, killer of man!!')
