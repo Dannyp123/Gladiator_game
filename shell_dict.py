@@ -32,7 +32,7 @@ def what_weapon(prompt):
 
 
 def get_name():
-    name = input('What is your name, mighty gladiator? ').strip().title()
+    name = input('What is thy name, strong warrior? ').strip().title()
     print('Welcome to Gladiator You must fight to the DEATH ' + name)
     return name
 
@@ -71,13 +71,13 @@ def turn(attacker, defender):
         print('>>> [H]EAL <<<')
         print('>>> [P]ASS <<<')
         print('>>> [R]AMPAGE <<<')
-        print('>>> [C]OWARDS WAY OUT <<<')
+        print('>>> [C]ANCEL THE GAME<<<')
 
         choice = input(
             'Pick how you will destroy your ENEMY.... ').upper().strip()
         if choice == 'A':
             attack(attacker, defender)
-            print(attacker['name'], 'is attacking your gladiator!!')
+            print(attacker['name'], 'is attacking', defender['name'], '!!')
             time.sleep(1)
             print()
             print('\nWOW....{} attacked {}, that was gruesome!!'.format(
@@ -92,7 +92,7 @@ def turn(attacker, defender):
 
             break
         elif choice == 'H':
-            print('Healing Your Gladiator......')
+            print('Healing', attacker['name'], '......')
             time.sleep(4)
             print()
             if attacker['health'] == 100:
@@ -112,9 +112,9 @@ def turn(attacker, defender):
                 print()
                 print('Poor sucker....*evil laugh*')
                 print('Building the power from within....')
-                time.sleep(2)
-                print('.......KAABOOOOM.......')
                 time.sleep(1)
+                print('.......KAABOOOOM.......')
+                time.sleep(2)
                 print(
                     attacker['name'],
                     'used a RAMPAGE...killing everyone, giving him the victory\n!!!'
